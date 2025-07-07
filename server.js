@@ -1,3 +1,4 @@
+require('dotenv').config();
 const express = require('express');
 const mongoose = require('mongoose');
 const multer = require('multer');
@@ -10,7 +11,7 @@ app.use(cors());
 
 
 mongoose.connect(
-  'mongodb+srv://hasrshrajbriskcoders:G4BH6BH4iKgjt54T@cluster0.wgpfwxk.mongodb.net/excelData?retryWrites=true&w=majority&appName=Cluster0',
+  process.env.MONGODB_URI,
   {
     useNewUrlParser: true,
     useUnifiedTopology: true,
