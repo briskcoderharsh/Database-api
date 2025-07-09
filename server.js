@@ -11,11 +11,7 @@ app.use(cors());
 
 
 mongoose.connect(
-  process.env.MONGODB_URI,
-  {
-    useNewUrlParser: true,
-    useUnifiedTopology: true,
-  }
+  process.env.MONGODB_URI
 ).then(() => console.log('✅ MongoDB Connected'))
   .catch((err) => console.error(' MongoDB connection error:', err));
 
@@ -66,7 +62,7 @@ app.delete('/api/data', async (req, res) => {
 
 
 
-const PORT = 5000;
+const PORT = process.env.PORT || 5000;
 app.listen(PORT, () => {
-  console.log(` Server running at http://localhost:${PORT}`);
+  console.log(`Server running on port ${PORT}`);
 });
