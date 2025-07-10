@@ -42,12 +42,13 @@ app.post('/upload', upload.single('file'), async (req, res) => {
 
 app.get('/api/data', async (req, res) => {
   try {
-    const data = await DataModel.find().select('-__v'); 
+    const data = await DataModel.find().sort({ Suburb: 1 }).select('-__v'); 
     res.json(data);
   } catch (err) {
-    res.status(500).send(' Failed to fetch data');
+    res.status(500).send('Failed to fetch data');
   }
 });
+
 
 
 app.delete('/api/data', async (req, res) => {
