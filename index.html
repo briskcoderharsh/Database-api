@@ -121,7 +121,7 @@
 
             const res = await fetch('http://localhost:5000/api/data', {
                 method: 'DELETE'
-            });
+            }); 
 
             const result = await res.json();
             responseDiv.innerHTML = `<pre>${JSON.stringify(result, null, 2)}</pre>`;
